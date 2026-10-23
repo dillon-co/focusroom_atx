@@ -1,0 +1,13 @@
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+.env*
+.vercel
+.DS_Store
+# design-tool screenshots and caches
+.impeccable/review/
+.impeccable/*.local.json
+.impeccable/hook.cache.json
+.taste-skill/*/
