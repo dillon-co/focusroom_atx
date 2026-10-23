@@ -226,9 +226,7 @@ p { text-wrap: pretty; }
 .sheet-list { display: grid; gap: 8px; font-size: var(--t-body); }
 .sheet-list li { display: flex; gap: 12px; align-items: baseline; }
 .sheet-list li::before { content: ""; flex: none; width: 10px; height: 12px; border-radius: 5px 5px 0 0; background: currentColor; translate: 0 1px; }
-@media (min-width: 761px) {
-  .sheet-copy { align-self: stretch; align-content: space-between; }
-}
+.sheets::after { content: ""; display: block; height: 50svh; } /* hold the full stack for a beat before it leaves */
 .sheet-media { grid-column: 7 / 13; grid-row: 1 / 3; position: relative; overflow: hidden; isolation: isolate; background: var(--bg); }
 .sheet-media img { filter: grayscale(1) contrast(1.1) brightness(1.15); mix-blend-mode: luminosity; }
 
@@ -519,11 +517,13 @@ p { text-wrap: pretty; }
   .nots { grid-template-columns: 1fr; gap: 20px; }
 
   .method-head { row-gap: 20px; }
-  .sheet { top: calc(var(--bar) + var(--i) * 52px); height: auto; min-height: 70svh; grid-template-columns: 1fr; grid-template-rows: 52px auto auto; padding-right: var(--m); }
+  /* Bottoms line up (height + top is the same for every sheet) so the stack leaves as one.
+     ponytail: 660px floor fits Mission's copy; on short phones the photo's lower edge sits below the fold. */
+  .sheet { top: calc(var(--bar) + var(--i) * 52px); height: calc(max(100svh - var(--bar), 660px) - var(--i) * 52px); min-height: 0; grid-template-columns: 1fr; grid-template-rows: 52px auto minmax(120px, 1fr); padding-bottom: var(--m); }
   .sheet-name, .sheet-copy, .sheet-media { grid-column: 1; }
-  .sheet-name { font-size: var(--t-lead); line-height: 1.05; }
-  .sheet-media { grid-row: 2; aspect-ratio: 4 / 3; }
-  .sheet-copy { grid-row: 3; padding: 20px 0 32px; }
+  .sheet-name { font-size: 30px; line-height: 1; letter-spacing: -0.02em; }
+  .sheet-copy { grid-row: 2; padding: 8px 0 24px; }
+  .sheet-media { grid-row: 3; }
   .sheet-list { font-size: var(--t-small); }
 
   .week { padding-block: 112px 96px; }

@@ -35,10 +35,6 @@ const sheets = [
       "Small groups, four members at most",
       "Private coaching, one on one",
       "Custom programming you can take anywhere",
-      "Strength, speed, endurance and power, built together",
-      "Periodization from your first session to your hundredth",
-      "Nutrition and supplement guidance from day one",
-      "Recovery: sleep, stress and mobility in the plan",
     ],
   },
   {
@@ -52,7 +48,6 @@ const sheets = [
       "One-to-one mindset coaching to break old patterns",
       "Weekly group workshops",
       "Guest facilitators and mentors",
-      "Daily habit programming that makes discipline automatic",
     ],
   },
   {
@@ -66,9 +61,6 @@ const sheets = [
       "PED coaching: Plan, Execute, Dominate, Jarred’s weekly system",
       "The MAP framework, a ten-part plan for your whole life",
       "Mission sessions that turn a vision into this week’s actions",
-      "Small-group masterminds for strategy and accountability",
-      "PED software with daily tracking and a Domination Score",
-      "Winner’s Circle: one call a month, goals set in public",
     ],
   },
 ];
