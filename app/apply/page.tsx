@@ -18,11 +18,11 @@ export default async function Apply({ searchParams }: { searchParams: Promise<{ 
   const who = people.find((p) => p.id === as);
   return (
     <main className="apply-page">
-      <aside className="apply-side t-gold">
+      <aside className="apply-side t-navy">
         <a href="/" className="wordmark apply-mark" aria-label="The Focus Room, home" />
         <div>
           <h1 className="display">Apply.</h1>
-          <p className="lead apply-sub">{who && <>As The {who.word}.<br /></>}No checkout and no free trial.</p>
+          <p className="lead apply-sub">{who && <>As The {who.word}.<br /></>}Membership begins with a conversation.</p>
         </div>
         <ol className="apply-steps">
           {steps.map(([h, b]) => <li key={h}><strong>{h}</strong> {b}</li>)}
@@ -33,6 +33,7 @@ export default async function Apply({ searchParams }: { searchParams: Promise<{ 
         </p>
       </aside>
       <section className="apply-main" aria-label="Application">
+        <div className="application-intro"><h2 className="heading">Your next chapter.</h2><p>Tell us where you are, and where you want to go. Jarred reads every application personally.</p></div>
         <ApplyForm as={as} />
       </section>
     </main>

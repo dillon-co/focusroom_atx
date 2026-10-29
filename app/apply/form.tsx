@@ -93,58 +93,68 @@ export default function ApplyForm({ as }: { as?: string }) {
     <form ref={ref} className="form" noValidate onSubmit={submit} onInput={onInput}>
       <div className="hp" aria-hidden="true"><label>Website<input type="text" name="website" tabIndex={-1} autoComplete="off" /></label></div>
 
-      <fieldset className="f">
-        <legend className="f-label">Which one are you?</legend>
-        <div className="chips">
-          {people.map((p) => (
-            <label key={p.id} className="chip">
-              <input type="radio" name="archetype" value={p.word} defaultChecked={p.id === as} />
-              <span>The {p.word}</span>
-            </label>
-          ))}
+      <section className="form-section" aria-labelledby="about-you">
+        <h3 id="about-you" className="lead-size">About you</h3>
+        <fieldset className="f">
+          <legend className="f-label">Which one feels like you?</legend>
+          <div className="chips">
+            {people.map((p) => (
+              <label key={p.id} className="chip">
+                <input type="radio" name="archetype" value={p.word} defaultChecked={p.id === as} />
+                <span>The {p.word}</span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
+
+        <div className="f-row">
+          <label className="f"><span className="f-label">Full name</span><input name="name" required autoComplete="name" aria-invalid={!!errs.name} />{err("name")}</label>
+          <label className="f"><span className="f-label">Email</span><input type="email" name="email" required autoComplete="email" aria-invalid={!!errs.email} />{err("email")}</label>
         </div>
-      </fieldset>
-
-      <div className="f-row">
-        <label className="f"><span className="f-label">Full name</span><input name="name" required autoComplete="name" aria-invalid={!!errs.name} />{err("name")}</label>
-        <label className="f"><span className="f-label">Email</span><input type="email" name="email" required autoComplete="email" aria-invalid={!!errs.email} />{err("email")}</label>
-      </div>
-      <div className="f-row">
-        <label className="f"><span className="f-label">Phone</span><input type="tel" name="phone" required autoComplete="tel" aria-invalid={!!errs.phone} />{err("phone")}</label>
-        <label className="f"><span className="f-label">Birthday <em>optional</em></span><input type="date" name="birthday" autoComplete="bday" /></label>
-      </div>
-      <label className="f"><span className="f-label">Full address <em>optional</em></span><input name="address" placeholder="Street, city, state, zip" autoComplete="street-address" /></label>
-      <label className="f">
-        <span className="f-label">How did you hear about us?</span>
-        <select name="hear_about" required defaultValue="" aria-invalid={!!errs.hear_about}><option value="" disabled>Choose one</option>{HEAR.map((o) => <option key={o}>{o}</option>)}</select>{err("hear_about")}
-      </label>
-
-      <label className="f"><span className="f-label">What are your biggest goals?</span><textarea name="goals" required rows={4} aria-invalid={!!errs.goals} />{err("goals")}</label>
-      <fieldset className="f" data-bad={errs.importance ? "" : undefined}>
-        <legend className="f-label">How important is it to you to get there?</legend>
-        <div className="scale">
-          {Array.from({ length: 10 }, (_, i) => (
-            <label key={i} className="chip"><input type="radio" name="importance" value={i + 1} required /><span>{i + 1}</span></label>
-          ))}
+        <div className="f-row">
+          <label className="f"><span className="f-label">Phone</span><input type="tel" name="phone" required autoComplete="tel" aria-invalid={!!errs.phone} />{err("phone")}</label>
+          <label className="f"><span className="f-label">Birthday <em>optional</em></span><input type="date" name="birthday" autoComplete="bday" /></label>
         </div>
-        <div className="scale-ends"><span>Not important</span><span>Everything</span></div>
-        {err("importance")}
-      </fieldset>
-      <label className="f"><span className="f-label">What does your training look like right now?</span><textarea name="training" required rows={4} aria-invalid={!!errs.training} />{err("training")}</label>
-      <label className="f"><span className="f-label">What has been getting in the way?</span><textarea name="in_the_way" required rows={4} aria-invalid={!!errs.in_the_way} />{err("in_the_way")}</label>
-      <label className="f">
-        <span className="f-label">When are you looking to start?</span>
-        <select name="start" required defaultValue="" aria-invalid={!!errs.start}><option value="" disabled>Choose one</option>{START.map((o) => <option key={o}>{o}</option>)}</select>{err("start")}
-      </label>
-      <label className="f"><span className="f-label">What are you expecting from The Focus Room?</span><textarea name="expecting" required rows={4} aria-invalid={!!errs.expecting} />{err("expecting")}</label>
-      <label className="f"><span className="f-label">Anything else Jarred should know? <em>optional</em></span><textarea name="anything" rows={4} /></label>
-
-      {hasPhone && (
-        <label className="consent">
-          <input type="checkbox" name="sms_consent" />
-          <span>Text me occasional updates. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help.</span>
+        <label className="f"><span className="f-label">Full address <em>optional</em></span><input name="address" placeholder="Street, city, state, zip" autoComplete="street-address" /></label>
+        <label className="f">
+          <span className="f-label">How did you hear about us?</span>
+          <select name="hear_about" required defaultValue="" aria-invalid={!!errs.hear_about}><option value="" disabled>Choose one</option>{HEAR.map((o) => <option key={o}>{o}</option>)}</select>{err("hear_about")}
         </label>
-      )}
+
+      </section>
+      <section className="form-section" aria-labelledby="your-training">
+        <h3 id="your-training" className="lead-size">Your training &amp; goals</h3>
+        <label className="f"><span className="f-label">What are your biggest goals?</span><textarea name="goals" required rows={4} aria-invalid={!!errs.goals} />{err("goals")}</label>
+        <fieldset className="f" data-bad={errs.importance ? "" : undefined}>
+          <legend className="f-label">How important is it to you to get there?</legend>
+          <div className="scale">
+            {Array.from({ length: 10 }, (_, i) => (
+              <label key={i} className="chip"><input type="radio" name="importance" value={i + 1} required /><span>{i + 1}</span></label>
+            ))}
+          </div>
+          <div className="scale-ends"><span>Not important</span><span>Everything</span></div>
+          {err("importance")}
+        </fieldset>
+        <label className="f"><span className="f-label">What does your training look like right now?</span><textarea name="training" required rows={4} aria-invalid={!!errs.training} />{err("training")}</label>
+        <label className="f"><span className="f-label">What has been getting in the way?</span><textarea name="in_the_way" required rows={4} aria-invalid={!!errs.in_the_way} />{err("in_the_way")}</label>
+      </section>
+      <section className="form-section" aria-labelledby="next-chapter">
+        <h3 id="next-chapter" className="lead-size">What comes next</h3>
+        <label className="f">
+          <span className="f-label">When are you looking to start?</span>
+          <select name="start" required defaultValue="" aria-invalid={!!errs.start}><option value="" disabled>Choose one</option>{START.map((o) => <option key={o}>{o}</option>)}</select>{err("start")}
+        </label>
+        <label className="f"><span className="f-label">What are you expecting from The Focus Room?</span><textarea name="expecting" required rows={4} aria-invalid={!!errs.expecting} />{err("expecting")}</label>
+        <label className="f"><span className="f-label">Anything else Jarred should know? <em>optional</em></span><textarea name="anything" rows={4} /></label>
+
+        {hasPhone && (
+          <label className="consent">
+            <input type="checkbox" name="sms_consent" />
+            <span>Text me occasional updates. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help.</span>
+          </label>
+        )}
+
+      </section>
 
       <div className="submit">
         <button type="submit" className="btn btn-dark" disabled={sending}>{sending ? "Sending…" : "Send my application"}</button>

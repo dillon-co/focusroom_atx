@@ -1,13 +1,12 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-22T21:00:59+00:00",
+  "generatedAt": "2026-10-29T03:35:29.440237+00:00",
   "title": "Design System: The Focus Room",
   "extensions": {
     "colorMeta": {
       "gold": {
         "role": "primary",
         "displayName": "Rack Gold",
-        "canonical": "oklch(70.1% 0.129 80.6)",
         "tonalRamp": [
           "oklch(15% 0.077 80.6)",
           "oklch(26% 0.129 80.6)",
@@ -22,7 +21,6 @@
       "steel": {
         "role": "secondary",
         "displayName": "Mirror-Frame Steel",
-        "canonical": "oklch(66.7% 0.039 253.5)",
         "tonalRamp": [
           "oklch(15% 0.023 253.5)",
           "oklch(26% 0.039 253.5)",
@@ -37,7 +35,6 @@
       "navy": {
         "role": "neutral",
         "displayName": "Wall Navy",
-        "canonical": "oklch(19.1% 0.036 259.5)",
         "tonalRamp": [
           "oklch(15% 0.022 259.5)",
           "oklch(26% 0.036 259.5)",
@@ -52,7 +49,6 @@
       "navy-2": {
         "role": "neutral",
         "displayName": "Wall Navy, Step",
-        "canonical": "oklch(24.9% 0.052 261.3)",
         "tonalRamp": [
           "oklch(15% 0.031 261.3)",
           "oklch(26% 0.052 261.3)",
@@ -67,7 +63,6 @@
       "bone": {
         "role": "neutral",
         "displayName": "Bone",
-        "canonical": "oklch(92.9% 0.019 86.1)",
         "tonalRamp": [
           "oklch(15% 0.011 86.1)",
           "oklch(26% 0.019 86.1)",
@@ -82,7 +77,6 @@
       "bone-2": {
         "role": "neutral",
         "displayName": "Bone, Shade",
-        "canonical": "oklch(89.0% 0.026 86.9)",
         "tonalRamp": [
           "oklch(15% 0.016 86.9)",
           "oklch(26% 0.026 86.9)",
@@ -97,7 +91,6 @@
       "ink": {
         "role": "neutral",
         "displayName": "Ink",
-        "canonical": "oklch(15.5% 0.009 85.2)",
         "tonalRamp": [
           "oklch(15% 0.005 85.2)",
           "oklch(26% 0.009 85.2)",
@@ -108,32 +101,48 @@
           "oklch(85% 0.009 85.2)",
           "oklch(95% 0.005 85.2)"
         ]
+      },
+      "gold-lite": {
+        "role": "primary",
+        "displayName": "Gold Hover",
+        "tonalRamp": [
+          "oklch(15% 0.1 80)",
+          "oklch(26% 0.1 80)",
+          "oklch(38% 0.1 80)",
+          "oklch(50% 0.1 80)",
+          "oklch(62% 0.1 80)",
+          "oklch(74% 0.1 80)",
+          "oklch(85% 0.1 80)",
+          "oklch(95% 0.1 80)"
+        ]
+      },
+      "error": {
+        "role": "semantic",
+        "displayName": "Validation Red",
+        "tonalRamp": [
+          "oklch(15% 0.14 35)",
+          "oklch(26% 0.14 35)",
+          "oklch(38% 0.14 35)",
+          "oklch(50% 0.14 35)",
+          "oklch(62% 0.14 35)",
+          "oklch(74% 0.14 35)",
+          "oklch(85% 0.14 35)",
+          "oklch(95% 0.14 35)"
+        ]
       }
     },
     "typographyMeta": {
       "display": {
-        "displayName": "Display",
-        "purpose": "Hero line, statement tile, big figures, footer wordmark letters."
+        "displayName": "Hero Display",
+        "purpose": "Uppercase hero at 850; footer echoes its weight."
       },
       "headline": {
-        "displayName": "Heading",
-        "purpose": "Section heads, chapter titles, word tiles; address rows at weight 400."
+        "displayName": "Main Section Heading",
+        "purpose": "Landing-page section hierarchy at 750."
       },
-      "lead": {
-        "displayName": "Lead",
-        "purpose": "Intro copy beside headlines, sheet and menu names, story columns, Apply line."
-      },
-      "body": {
-        "displayName": "Body",
-        "purpose": "Running copy and button labels (700)."
-      },
-      "label": {
-        "displayName": "Small",
-        "purpose": "Bar links, tags, captions, footer, small buttons."
-      },
-      "apply-word": {
-        "displayName": "Apply Word (exception)",
-        "purpose": "Only the APPLY band word: min(29.5vw, 48svh), 800, uppercase, -0.06em, line-height 0.8."
+      "chapter": {
+        "displayName": "Founder Spread",
+        "purpose": "Oversized uppercase room and founder titles."
       }
     },
     "shadows": [],
@@ -141,42 +150,17 @@
       {
         "name": "ease-out",
         "value": "cubic-bezier(0.23, 1, 0.32, 1)",
-        "purpose": "Entrances, presses, bar slide, field growth, hover travel."
+        "purpose": "Entrances and control feedback."
       },
       {
-        "name": "ease-in-out",
-        "value": "cubic-bezier(0.77, 0, 0.175, 1)",
-        "purpose": "On-screen movement between two states."
-      },
-      {
-        "name": "bar-recolour",
-        "value": "300ms ease (background-color, color); 300ms ease-out (transform)",
-        "purpose": "Fixed bar takes each chapter's field and ink."
-      },
-      {
-        "name": "press",
-        "value": "transform: scale(0.97) 160ms ease-out",
-        "purpose": "Press feedback on buttons, swatches, tiles, bar Apply."
-      },
-      {
-        "name": "chapter-reveal",
-        "value": "clip-path inset(20px) → 0 (900ms), portrait scale(0.92) → 1 (1000ms), ease-out",
-        "purpose": "The one scroll moment: showcase chapters only."
-      },
-      {
-        "name": "chapter-field",
-        "value": "clip-path inset(20px) → inset(0) 900ms ease-out; portrait scale(0.92) → 1 1000ms",
-        "purpose": "Portrait chapter entrance."
-      },
-      {
-        "name": "tile-flip",
-        "value": "opacity/filter 220ms ease, transform 300ms ease-out, ±8px, blur(4px)",
-        "purpose": "Word-tile front/back swap."
+        "name": "collage-scroll",
+        "value": "room: translateY(90px) rotate(-9deg) to translateY(-50px) rotate(3deg); detail: translateY(-40px) rotate(12deg) to translateY(100px) rotate(-5deg)",
+        "purpose": "CSS view timeline; static rotated fallback when unsupported; disabled for reduced motion."
       },
       {
         "name": "reduced-motion",
-        "value": "fades kept (400ms), all travel, clip and scale removed",
-        "purpose": "prefers-reduced-motion: reduce."
+        "value": "1ms entrances; no scroll timelines, sticky sheets or navigation view transitions",
+        "purpose": "Respect the system motion preference."
       }
     ],
     "breakpoints": [
@@ -195,134 +179,95 @@
       "name": "Light Button",
       "kind": "button",
       "refersTo": "button-light",
-      "description": "Square bone button for dark photos and fields; turns gold on hover.",
-      "html": "<a class=\"ds-btn ds-btn-light\" href=\"#\">Apply</a>",
-      "css": ".ds-btn { font-family: var(--font-archivo), Archivo, system-ui, sans-serif; display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 30px; font-weight: 700; font-size: 18px; text-decoration: none; border-radius: 0; transition: transform 160ms cubic-bezier(0.23,1,0.32,1), background-color 200ms ease, color 200ms ease; } .ds-btn:active { transform: scale(0.97); } .ds-btn:focus-visible { outline: 3px solid #c8952e; outline-offset: 3px; } .ds-btn-light { background: #ede7da; color: #0e0c08; } @media (hover: hover) and (pointer: fine) { .ds-btn-light:hover { background: #c8952e; } }"
+      "description": "Flat filled action with keyboard focus and press feedback.",
+      "html": "<a class=\"ds-button\" href=\"#apply\">Apply</a>",
+      "css": ".ds-button {font-family:var(--font-archivo, Archivo),system-ui,sans-serif;display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 30px;background:var(--bone,#ede7da);color:var(--ink,#0e0c08);font-size:18px;font-weight:700;text-decoration:none;transition:transform 160ms ease-out,background-color 200ms ease;} .ds-button:focus-visible {outline:3px solid var(--gold,#c8952e);outline-offset:3px;} .ds-button:active {transform:scale(.97);} @media(hover:hover) and (pointer:fine) {.ds-button:hover {background:var(--gold,#c8952e);}} @media(prefers-reduced-motion:reduce) {.ds-button {transition:none;}}"
     },
     {
       "name": "Dark Button",
       "kind": "button",
       "refersTo": "button-dark",
-      "description": "Square ink button for light fields; turns navy on hover.",
-      "html": "<a class=\"ds-btn-dark\" href=\"#\">Apply</a>",
-      "css": ".ds-btn-dark { font-family: var(--font-archivo), Archivo, system-ui, sans-serif; display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 30px; font-weight: 700; font-size: 18px; text-decoration: none; border-radius: 0; background: #0e0c08; color: #ede7da; transition: transform 160ms cubic-bezier(0.23,1,0.32,1), background-color 200ms ease; } .ds-btn-dark:active { transform: scale(0.97); } .ds-btn-dark:focus-visible { outline: 3px solid #c8952e; outline-offset: 3px; } @media (hover: hover) and (pointer: fine) { .ds-btn-dark:hover { background: #0a1424; } }"
+      "description": "Flat filled action with keyboard focus and press feedback.",
+      "html": "<a class=\"ds-button\" href=\"#apply\">Apply</a>",
+      "css": ".ds-button {font-family:var(--font-archivo, Archivo),system-ui,sans-serif;display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 30px;background:var(--ink,#0e0c08);color:var(--bone,#ede7da);font-size:18px;font-weight:700;text-decoration:none;transition:transform 160ms ease-out,background-color 200ms ease;} .ds-button:focus-visible {outline:3px solid var(--gold,#c8952e);outline-offset:3px;} .ds-button:active {transform:scale(.97);} @media(hover:hover) and (pointer:fine) {.ds-button:hover {background:var(--navy,#0a1424);}} @media(prefers-reduced-motion:reduce) {.ds-button {transition:none;}}"
     },
     {
-      "name": "Fixed Bar",
+      "name": "Gold Button",
+      "kind": "button",
+      "refersTo": "button-gold",
+      "description": "Flat filled action with keyboard focus and press feedback.",
+      "html": "<a class=\"ds-button\" href=\"#apply\">Apply</a>",
+      "css": ".ds-button {font-family:var(--font-archivo, Archivo),system-ui,sans-serif;display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 30px;background:var(--gold,#c8952e);color:var(--ink,#0e0c08);font-size:18px;font-weight:700;text-decoration:none;transition:transform 160ms ease-out,background-color 200ms ease;} .ds-button:focus-visible {outline:3px solid var(--gold,#c8952e);outline-offset:3px;} .ds-button:active {transform:scale(.97);} @media(hover:hover) and (pointer:fine) {.ds-button:hover {background:var(--gold-lite,#e3b85c);}} @media(prefers-reduced-motion:reduce) {.ds-button {transition:none;}}"
+    },
+    {
+      "name": "Application Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Square filled field with a visible label.",
+      "html": "<label class=\"ds-field\">Your name<input autocomplete=\"name\" /></label>",
+      "css": ".ds-field {font-family:var(--font-archivo, Archivo),system-ui,sans-serif;display:grid;gap:10px;color:var(--ink,#0e0c08);font-size:18px;font-weight:700;} .ds-field input {font:inherit;font-weight:400;background:var(--bone-2,#e2dac8);color:inherit;border:0;border-radius:0;min-height:52px;padding:12px 16px;} .ds-field input:focus-visible {outline:3px solid var(--gold,#c8952e);outline-offset:3px;outline-offset:0;} .ds-field input[aria-invalid=\"true\"] {outline:2px solid var(--error,#9a2a14);outline-offset:-2px;}"
+    },
+    {
+      "name": "Selection Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Native checkbox with a filled selected state.",
+      "html": "<label class=\"ds-chip\"><input type=\"checkbox\"/><span>Morning</span></label>",
+      "css": ".ds-chip {font-family:var(--font-archivo, Archivo),system-ui,sans-serif;position:relative;display:inline-flex;cursor:pointer;} .ds-chip input {position:absolute;opacity:0;inset:0;} .ds-chip span {display:flex;align-items:center;min-height:48px;padding:0 18px;background:var(--bone-2,#e2dac8);color:var(--ink,#0e0c08);font-weight:700;} .ds-chip input:checked + span {background:var(--ink,#0e0c08);color:var(--gold,#c8952e);} .ds-chip input:focus-visible + span {outline:3px solid var(--gold,#c8952e);outline-offset:3px;} @media(hover:hover) and (pointer:fine) {.ds-chip:hover input:not(:checked) + span {background:var(--gold,#c8952e);}}"
+    },
+    {
+      "name": "Section Bar",
       "kind": "nav",
       "refersTo": "bar",
-      "description": "56px bar that takes the field and ink of the chapter beneath it; Apply chip inverts the bar's pair.",
-      "html": "<header class=\"ds-bar\"><strong class=\"ds-bar-mark\">THE FOCUS ROOM</strong><nav class=\"ds-bar-links\"><a href=\"#\">Method</a><a href=\"#\">Week</a><a href=\"#\">Room</a></nav><a class=\"ds-bar-apply\" href=\"#\">Apply</a></header>",
-      "css": ".ds-bar { font-family: var(--font-archivo), Archivo, system-ui, sans-serif; --bg: #0a1424; --fg: #ede7da; display: flex; align-items: center; gap: 32px; height: 56px; padding: 0 24px; background: var(--bg); color: var(--fg); transition: background-color 300ms ease, color 300ms ease; } .ds-bar-mark { font-weight: 800; font-size: 15px; letter-spacing: -0.03em; } .ds-bar-links { display: flex; gap: 28px; margin-left: auto; font-size: 15px; font-weight: 600; } .ds-bar-links a { color: inherit; text-decoration: none; } .ds-bar-links a:hover { text-decoration: underline; } .ds-bar-apply { display: inline-flex; align-items: center; height: 38px; padding: 0 20px; background: var(--fg); color: var(--bg); font-size: 15px; font-weight: 700; text-decoration: none; } .ds-bar-apply:active { transform: scale(0.97); } .ds-bar a:focus-visible { outline: 3px solid #c8952e; outline-offset: 3px; }"
+      "description": "Section-colored fixed navigation, shown here in navy.",
+      "html": "<nav class=\"ds-bar\" aria-label=\"Sections\"><strong>The Focus Room</strong><a href=\"#method\">Method</a><a href=\"#apply\">Apply</a></nav>",
+      "css": ".ds-bar {font-family:var(--font-archivo, Archivo),system-ui,sans-serif;display:flex;align-items:center;gap:28px;min-height:72px;padding:0 24px;background:var(--navy,#0a1424);color:var(--bone,#ede7da);font-size:15px;} .ds-bar strong {margin-right:auto;} .ds-bar a {color:inherit;text-decoration:none;} .ds-bar a:last-child {padding:10px 20px;background:var(--bone,#ede7da);color:var(--navy,#0a1424);} .ds-bar a:hover {text-decoration:underline;} .ds-bar a:focus-visible {outline:3px solid var(--gold,#c8952e);outline-offset:3px;}"
     },
     {
-      "name": "Swatch Column Nav",
-      "kind": "nav",
-      "refersTo": "swatch-nav-item",
-      "description": "Hero navigation as stacked chapter swatches, each in its chapter's field and ink.",
-      "html": "<nav class=\"ds-swatches\"><a class=\"ds-sw\" style=\"background:#8496ac;color:#0e0c08\" href=\"#\">The method</a><a class=\"ds-sw\" style=\"background:#e2dac8;color:#0e0c08\" href=\"#\">The week</a><a class=\"ds-sw\" style=\"background:#0a1424;color:#ede7da\" href=\"#\">The room</a><a class=\"ds-sw\" style=\"background:#0e0c08;color:#ede7da\" href=\"#\">Who it’s for</a><a class=\"ds-sw\" style=\"background:#c8952e;color:#0e0c08\" href=\"#\">Apply</a></nav>",
-      "css": ".ds-swatches { font-family: var(--font-archivo), Archivo, system-ui, sans-serif; display: grid; grid-template-rows: repeat(5, 96px); width: 240px; } .ds-sw { padding: 20px; font-size: 15px; font-weight: 700; text-decoration: none; transition: padding-left 240ms cubic-bezier(0.23,1,0.32,1), transform 160ms cubic-bezier(0.23,1,0.32,1); } .ds-sw:active { transform: scale(0.97); } .ds-sw:focus-visible { outline: 3px solid #c8952e; outline-offset: -6px; } @media (hover: hover) and (pointer: fine) { .ds-sw:hover { padding-left: 32px; } }"
-    },
-    {
-      "name": "Arch-Bullet Menu Item",
+      "name": "Class Disclosure",
       "kind": "custom",
-      "refersTo": "arch-bullet",
-      "description": "Menu entry led by an arch-topped bullet in a chapter tone.",
-      "html": "<div class=\"ds-menu-item\"><span class=\"ds-arch\"></span><div><p class=\"ds-menu-line\"><strong>Stoic Sundays</strong><span>Free</span></p><p class=\"ds-menu-desc\">Meditation and stoic principles every other Sunday.</p></div></div>",
-      "css": ".ds-menu-item { font-family: var(--font-archivo), Archivo, system-ui, sans-serif; display: grid; grid-template-columns: 64px minmax(0,1fr); gap: 20px; background: #e2dac8; color: #0e0c08; padding: 24px; max-width: 560px; } .ds-arch { width: 64px; height: 72px; border-radius: 32px 32px 0 0; background: #8496ac; display: block; } .ds-menu-line { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; margin: 0; font-size: 18px; } .ds-menu-line strong { font-size: 28px; letter-spacing: -0.02em; line-height: 1.1; } .ds-menu-line span { font-size: 15px; font-weight: 600; } .ds-menu-desc { margin: 6px 0 0; font-size: 18px; line-height: 1.55; max-width: 44ch; }"
+      "refersTo": "class-scene",
+      "description": "Native class summary with active gold text; the site pairs it with existing photography.",
+      "html": "<details class=\"ds-class\"><summary>Flex <span aria-hidden=\"true\">\u2197</span></summary><p>New ways to move and new facilitators.</p></details>",
+      "css": ".ds-class {font-family:var(--font-archivo, Archivo),system-ui,sans-serif;padding:24px;background:var(--navy,#0a1424);color:var(--bone,#ede7da);} .ds-class summary {display:flex;justify-content:space-between;gap:16px;list-style:none;cursor:pointer;font-size:38px;font-weight:700;letter-spacing:-.035em;line-height:1;} .ds-class summary::-webkit-details-marker {display:none;} .ds-class[open] summary,.ds-class summary:hover {color:var(--gold,#c8952e);} .ds-class summary:focus-visible {outline:3px solid var(--gold,#c8952e);outline-offset:3px;} .ds-class p {font-size:18px;line-height:1.55;max-width:44ch;}"
     },
     {
-      "name": "Arch Portrait Chapter",
+      "name": "Featured Proof",
       "kind": "card",
-      "refersTo": "arch-portrait",
-      "description": "A full chapter field with an arch-topped portrait that grows from inset to full bleed.",
-      "html": "<section class=\"ds-chapter\"><h2>The coach.</h2><div class=\"ds-portrait\"></div><p>Twenty years, zero missed workouts.</p></section>",
-      "css": ".ds-chapter { font-family: var(--font-archivo), Archivo, system-ui, sans-serif; background: #0a1424; color: #ede7da; padding: 24px; display: grid; gap: 16px; justify-items: start; clip-path: inset(20px); transition: clip-path 900ms cubic-bezier(0.23,1,0.32,1); } .ds-chapter:hover { clip-path: inset(0); } .ds-chapter h2 { margin: 0; font-size: 48px; font-weight: 800; letter-spacing: -0.035em; line-height: 0.95; } .ds-portrait { justify-self: center; width: 180px; aspect-ratio: 3/4; border-radius: 999px 999px 0 0; background: #8496ac; } .ds-chapter p { margin: 0; font-size: 22px; line-height: 1.3; max-width: 30ch; }"
-    },
-    {
-      "name": "Apply Band",
-      "kind": "custom",
-      "refersTo": "apply-band",
-      "description": "The whole band is one link: gold, arched top, oversized APPLY; swaps to ink/gold on hover.",
-      "html": "<a class=\"ds-cta\" href=\"#\"><span class=\"ds-cta-line\">No checkout and no free trial. You apply, we talk.</span><span class=\"ds-cta-word\">Apply</span></a>",
-      "css": ".ds-cta { font-family: var(--font-archivo), Archivo, system-ui, sans-serif; --bg: #c8952e; --fg: #0e0c08; display: flex; flex-direction: column; gap: 40px; padding: 72px 24px 0; overflow: hidden; background: var(--bg); color: var(--fg); text-decoration: none; border-radius: 50% 50% 0 0 / 72px 72px 0 0; } .ds-cta:hover, .ds-cta:focus-visible { --bg: #0e0c08; --fg: #c8952e; } .ds-cta:focus-visible { outline: 3px solid #c8952e; outline-offset: -6px; } .ds-cta-line { font-size: 22px; line-height: 1.3; font-weight: 600; max-width: 40ch; } .ds-cta-word { font-size: 160px; font-weight: 800; letter-spacing: -0.06em; line-height: 0.8; text-transform: uppercase; padding-bottom: 24px; transition: transform 500ms cubic-bezier(0.23,1,0.32,1); } @media (hover: hover) and (pointer: fine) { .ds-cta:hover .ds-cta-word { transform: translateY(-12px); } }"
-    },
-    {
-      "name": "Address Rows",
-      "kind": "custom",
-      "refersTo": "address-row",
-      "description": "Address set as headline rows on navy, stepped with navy-2; link rows turn gold.",
-      "html": "<div class=\"ds-rows\"><p class=\"ds-row\">The Focus Room</p><a class=\"ds-row\" href=\"#\">2709 East 5th Street</a><p class=\"ds-row\">Suite 110A</p></div>",
-      "css": ".ds-rows { font-family: var(--font-archivo), Archivo, system-ui, sans-serif; display: grid; } .ds-row { margin: 0; display: flex; align-items: flex-end; min-height: 110px; padding: 0 24px 22px; background: #0a1424; color: #ede7da; font-size: 48px; font-weight: 400; letter-spacing: -0.03em; line-height: 1; text-decoration: none; transition: background-color 200ms ease, color 200ms ease; } .ds-row:nth-child(even) { background: #13213a; } .ds-row:focus-visible { outline: 3px solid #c8952e; outline-offset: -6px; } @media (hover: hover) and (pointer: fine) { a.ds-row:hover { background: #c8952e; color: #0e0c08; } }"
+      "refersTo": "proof-feature",
+      "description": "Flat editorial proof surface, without shadow or ornament.",
+      "html": "<figure class=\"ds-proof\"><blockquote>\u201cStop guessing and get a coach.\u201d</blockquote><figcaption>Brian S. \u00b7 Jarred\u2019s one-on-one coaching client</figcaption></figure>",
+      "css": ".ds-proof {font-family:var(--font-archivo, Archivo),system-ui,sans-serif;margin:0;padding:48px;background:var(--bone,#ede7da);color:var(--ink,#0e0c08);} .ds-proof blockquote {margin:0 0 20px;font-size:23px;line-height:1.35;} .ds-proof figcaption {font-size:15px;font-weight:600;}"
     }
   ],
   "narrative": {
     "northStar": "The Painted Room",
-    "overview": "The page is painted in the training room's own colours. Navy walls, gold steel racks, and bone mirror light become flat colour chapters. Each chapter is one field with the one ink that reads on it, and the page moves from chapter to chapter like walking through the room. The room's arched mirrors give the system its only shape. Portraits, list bullets, the Apply band's top edge, and the footer wordmark are all arch-topped. Everything else is square.\n\nThe density is poster-like. Headlines are huge and set tight in Archivo at 800, never longer than two lines. Under them sit plain, generous body lines at 18px. There is no ornament and no depth. Colour does the structural work that borders, cards, and shadows would do elsewhere. Photographs are real (the room, the coaches) and are cropped into frames or arches, never tinted with brand gradients.\n\nMotion is quick and grounded. The fixed bar takes on each chapter's colours as you scroll, portrait fields grow from an inset to full bleed, and entrances start already visible, so content never pops in from nothing.",
+    "overview": "The room's own navy, bone and gold anchor a bold photographic editorial. Oversized, heavy Archivo gives the page its voice; real portraits and room photographs give it proof. The approved references\u2014Lando Norris, Dich Fashion and Shopify Editions Winter 2026\u2014informed scale, overlapping composition and scroll choreography, while the identity remains The Focus Room's.\n\nThe opening puts Jarred's portrait behind \u201cMaster yourself.\u201d Room photographs overlap a large statement below it. Sticky method sheets, a photographic class index and alternating founder spreads establish a varied rhythm before the enormous navy footer. This is direct, disciplined and warm underneath, with Apply as the central action.",
     "keyCharacteristics": [
-      "Flat colour chapters, each a field-plus-ink pair taken from the room's paint.",
-      "One curve: the arch. Every other corner is square.",
-      "One family (Archivo), five sizes.",
-      "No shadows, hairlines, or gradients. Depth comes from colour change and sticky stacking.",
-      "Gold is for the action: Apply, focus, selection, hover."
+      "Oversized uppercase Archivo headlines, with readable sentence-case supporting copy.",
+      "Real photography, overlapping room crops and strong changes of scale.",
+      "Navy and bone fields, with gold for emphasis, actions and the Mindset sheet.",
+      "Native controls and progressive motion enhancement; no new animation dependency."
     ],
     "rules": [
       {
         "name": "The Paired Ink Rule",
-        "body": "A field always takes its paired ink. Bone, bone-2, gold, and steel take ink. Navy, navy-2, and ink take bone. Don't set bone text on gold or steel.",
+        "body": "Bone, bone shade, gold and steel take ink text. Navy, navy shade and ink take bone text.",
         "section": "colors"
-      },
-      {
-        "name": "The Neighbour Rule",
-        "body": "Fields that touch must differ clearly in lightness. Never put two fields of the same tone next to each other, and when one dark field follows another, use the navy-2 step between them.",
-        "section": "colors"
-      },
-      {
-        "name": "The Gold Is the Action Rule",
-        "body": "Gold marks what you can do: apply, hover, focus, select. When gold appears as a chapter field, the content on it still points toward applying.",
-        "section": "colors"
-      },
-      {
-        "name": "The Five Steps Rule",
-        "body": "Only five sizes, and the Apply word is the one exception. To change emphasis, change weight or tone, not size.",
-        "section": "typography"
-      },
-      {
-        "name": "The Two-Line Headline Rule",
-        "body": "Display and headline text runs two lines at most, balanced with text-wrap: balance.",
-        "section": "typography"
-      },
-      {
-        "name": "The One Face Rule",
-        "body": "Archivo only. No second display face, no monospace, no serif accent.",
-        "section": "typography"
-      },
-      {
-        "name": "The Flat Paint Rule",
-        "body": "No box shadows, no glass, no decorative gradients. If a surface has to separate from the one next to it, give it a different field.",
-        "section": "elevation"
-      },
-      {
-        "name": "The One Curve Rule",
-        "body": "The arch is the only curved form allowed. Never round a corner, and never round all four.",
-        "section": "shapes"
       }
     ],
     "dos": [
-      "**Do** paint each section as one flat field with its paired ink: bone, bone-2, gold, steel, navy, ink.",
-      "**Do** use the arch (rounded top, flat base) as the only curve: portraits, bullets, band edges, the wordmark wall.",
-      "**Do** keep type to Archivo's five steps. Headlines at 800 with tight tracking, two lines at most.",
-      "**Do** keep gold for the action: Apply, hover, focus (3px outline), selection.",
-      "**Do** give touching fields different lightness, and use navy-2 to step a run of navy rows.",
-      "**Do** use the ease-out curve with press feedback at scale(0.97), and gate hover behind (hover: hover) and (pointer: fine).",
-      "**Do** keep scroll motion to the chapter reveal. Add a second scroll animation only if it replaces that one."
+      "**Do** preserve the navy, bone and gold identity and the existing Archivo family.",
+      "**Do** use existing real portraits and room photography, preserving accurate descriptions and product claims.",
+      "**Do** retain the Muscle, Mindset and Mission stack, with Mindset on gold.",
+      "**Do** make every class reachable by keyboard and without JavaScript.",
+      "**Do** preserve reduced-motion behavior and a static fallback for unsupported scroll timelines."
     ],
     "donts": [
-      "**Don't** round corners. Buttons, tiles, sheets, and frames are square (0).",
-      "**Don't** add resting shadows, hairline borders or dividers, or decorative gradients. The ink scrim under hero text on small screens is the only gradient.",
-      "**Don't** put small uppercase labels (eyebrows) above headlines, number the sections, or use monospace.",
-      "**Don't** set bone text on gold or steel.",
-      "**Don't** add type sizes outside the five steps, except the Apply band word."
+      "**Don't** invent imagery, testimonials, membership promises or new product facts.",
+      "**Don't** restore the obsolete five-size-only, arch-only or gold-only-for-actions rules.",
+      "**Don't** add decorative shadows, glass effects or new dependencies for these compositions.",
+      "**Don't** hide essential copy behind scroll animation or rely on hover alone."
     ]
   }
 }

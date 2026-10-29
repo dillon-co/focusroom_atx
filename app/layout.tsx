@@ -1,14 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo } from "next/font/google";
+import { Archivo, Geist_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 
 const archivo = Archivo({
   subsets: ["latin"],
-  axes: ["wdth"], // headline widths: condensed hero, chapter names that widen as they arrive
   variable: "--font-archivo",
   display: "swap",
   preload: false, // the hero photo is the first-screen bottleneck; let it take the bandwidth first
 });
+// Accent italic for one word per heading, and a mono for readouts (coordinates, counters, captions).
+const serif = Instrument_Serif({ subsets: ["latin"], weight: "400", style: "italic", variable: "--font-serif", display: "swap", preload: false });
+const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono", display: "swap", preload: false });
 
 export const metadata: Metadata = {
   title: "The Focus Room | Private training in East Austin",
@@ -23,11 +25,7 @@ export const viewport: Viewport = { themeColor: "#ede7da" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={archivo.variable}>
-      <head>
-        {/* Reveal styles only apply once JS has run, so nothing stays hidden without it. */}
-        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
-      </head>
+    <html lang="en" className={`${archivo.variable} ${serif.variable} ${mono.variable}`}>
       <body>{children}</body>
     </html>
   );
