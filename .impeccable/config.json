@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "broken-image",
+        "value": "*",
+        "files": [
+          "app/page.tsx"
+        ],
+        "createdAt": "2026-10-29T04:20:40.774Z",
+        "reason": "Claude: hero <img> gets src via {...desktop} spread from next/image getImageProps; detector can't see spread src"
+      }
+    ]
+  }
+}

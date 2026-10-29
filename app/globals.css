@@ -688,7 +688,6 @@ p { text-wrap: pretty; }
   .proof-feature { grid-template-columns: 1fr; padding: 28px 24px; gap: 24px; }
   .feature-quote { font-size: var(--t-body); }
   .proof-list { grid-template-columns: 1fr; gap: 12px; }
-  .proof-card { padding: 24px 0; }
 
   .apply-side { gap: 32px; padding-bottom: 40px; }
   .apply-main { padding: 56px var(--m) 96px; }
